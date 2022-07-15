@@ -60,9 +60,12 @@
     `sudo reboot`
 
 
-## 必须安装的容器
+## 推荐安装的容器
 
-1. portainer docker的面板看
+    看run文件夹下面的常用脚本
+
+1. portainer docker的面板
+2. 
 
 ## 常用命令
 
