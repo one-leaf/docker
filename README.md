@@ -62,10 +62,19 @@
 
 ## 推荐安装的容器
 
-    看run文件夹下面的常用脚本
+注意，下面的模板都需要调整模板中的 192.168.1.1 为你服务器的IP地址
 
-1. portainer docker的面板
-2. 
+run文件夹下面的常用脚本模板
+
+1. `portainer.sh` docker的面板
+1. `mysql.sh` mysql
+1. `postgres.sh` postgres
+1. `mongodb.sh` mongodb
+1. `zookeeper.sh` zookeeper
+
+服务器监控，看 monitoring 文件夹
+
+cadvisor + node-exporter + prometheus + grafana
 
 ## 常用命令
 
