@@ -99,6 +99,25 @@
                 - 继续 导入 Docker 的监控， 编号是 15331 安装 Docker Container Dashboard
                 - 所有的面板地址： https://grafana.com/grafana/dashboards/?dataSource=prometheus 
 
+1. nginx 方案
+
+    1. nginx 不推荐docker，有性能损失，直接实体机安装
+    1. nginx 增加log的配置，修改采用json格式输出，方便es采集，具体看 nginx/log.conf
+    1. 站点增加,确定输出json的日志和允许查询当前nginx实时状态：
+        ```
+            access_log /var/log/nginx/access.log main;
+            location /nginx_status {
+                stub_status;
+                allow 172.17.0.1;        #only allow requests from docker
+                deny all;                #deny all other hosts
+            }
+        ```
+    1. 容器增加 nginx-exporter 输出当前状态，监控 Prometheus 增加采集对应的任务 具体看 nginx/monitoring 文件夹
+    1. 在 grafana 面板中增加 编号为 11199 的面板 NGINX by nginxinc， 完成连接数监控
+    1. 启动 filebeat + elasticsearch + kibana 方案，具体看 nginx/log 文件夹
+    1. 完成配置后， 运行 start.sh 启动容器， 然后再运行 runonce.sh 创建 es 的用户
+    1. 然后直接通过 http://IP:5601 访问日志数据，默认用户和密码是 elastic 密码 123456
+
 ## 常用命令
 
   镜像名是指软件名字，容器名是正在运行的虚拟机名字

@@ -1,0 +1,26 @@
+filebeat.inputs:
+- type: filestream
+  id: nginx
+  enabled: true
+  paths:
+    - /var/log/nginx/access.log
+  parsers:
+    - ndjson:
+        target: ""
+        add_error_key: true
+  tags: ["nginx"]
+
+output.elasticsearch:
+  hosts: ["elasticsearch:9200"]
+  username: "elastic"
+  password: "123456"
+  indices:
+    - index: "filebeat-%{+yyyy.MM.dd}"
+
+setup.kibana:
+  host: "kibana:5601"
+
+filebeat.config:
+  modules:
+    path: ${path.config}/modules.d/*.yml
+    reload.enabled: false
