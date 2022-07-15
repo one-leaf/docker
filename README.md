@@ -64,17 +64,38 @@
 
 注意，下面的模板都需要调整模板中的 192.168.1.1 为你服务器的IP地址
 
-run文件夹下面的常用脚本模板
+1. run文件夹下面的常用脚本模板
 
-1. `portainer.sh` docker的面板
-1. `mysql.sh` mysql
-1. `postgres.sh` postgres
-1. `mongodb.sh` mongodb
-1. `zookeeper.sh` zookeeper
+    1. `portainer.sh` docker的面板
+    1. `mysql.sh` mysql
+    1. `postgres.sh` postgres
+    1. `mongodb.sh` mongodb
+    1. `zookeeper.sh` zookeeper
 
-服务器监控，看 monitoring 文件夹
+1. 服务器监控，看 monitoring 文件夹
 
-cadvisor + node-exporter + prometheus + grafana
+    1. 采用 docker-compose 封装
+        1. cadvisor docker容器实时监控
+        1. node-exporter 服务器实时监控
+        1. prometheus 监控数据采集器
+        1. grafana 采集数据显示面板
+    2. 监控面板
+        1. 地址是 http://IP:3000
+        2. 默认用户名 admin 密码 123456
+        3. 设置
+            1. 增加 Prometheus 数据源
+                - 点击 左边工具条 Configuration 的 Data sources 界面
+                - 点击 Add Data source ，选择 Prometheus 
+                - Http 项下的 url 写：http://prometheus:9090 其他默认
+                - 点击页面最底部的 Save & test 按钮，保存退出
+            2. 增加 Dashboards 面板
+                - 点击 左边工具条 Dashboards 的 Import 菜单
+                - 输入 1860 ，点击 Load 安装 Node Exporter Full
+                - 在下面的 Prometheus 鼠标输入兼容不太好，直接 tab 切换过去，按 space 空格键选择，回车确认
+                - 完成了 服务器 的监控
+                - 继续 导入 Docker 的监控， 编号是 15331 安装 Docker Container Dashboard
+                - 所有的面板地址： https://grafana.com/grafana/dashboards/?dataSource=prometheus 
+
 
 ## 常用命令
 
