@@ -50,4 +50,4 @@ docker run -d \
 # 备份数据
 # docker exec mysql_3087 mysqldump -uroot -p123456 testdb | gzip>testdb.sql.gz
 # 还原备份数据
-# gunzip -c mysql-2022-04-19.sql.gz | docker exec -i mysql_3087 mysql -uroot -p123456 testdb
+# gunzip -c mysql.sql.gz | docker exec -i mysql_3087 mysql -uroot -p123456 testdb

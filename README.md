@@ -64,13 +64,16 @@
 
 注意，下面的模板都需要调整模板中的 192.168.1.1 为你服务器的IP地址
 
-1. run文件夹下面的常用脚本模板
+1. run文件夹下面的常用脚本模板，其中数据均存放在主机的 /docker 目录，统一管理
 
-    1. `portainer.sh` docker的面板
-    1. `mysql.sh` mysql
-    1. `postgres.sh` postgres
-    1. `mongodb.sh` mongodb
-    1. `zookeeper.sh` zookeeper
+    1. `portainer.sh` docker 面板
+    1. `mysql.sh` mysql 数据库
+    1. `postgres.sh` postgres 数据库
+    1. `mongodb.sh` mongodb 数据库
+    1. `zookeeper.sh` zookeeper 配置服务
+    1. `mqtt.sh` 轻量级消息服务器
+    1. `rabbitmq.sh` 消息服务
+
 
 1. 服务器监控，看 monitoring 文件夹
 
@@ -95,7 +98,6 @@
                 - 完成了 服务器 的监控
                 - 继续 导入 Docker 的监控， 编号是 15331 安装 Docker Container Dashboard
                 - 所有的面板地址： https://grafana.com/grafana/dashboards/?dataSource=prometheus 
-
 
 ## 常用命令
 

@@ -35,6 +35,6 @@ docker run -d \
         -c archive_command='gzip < %p > /mnt/wal/%f'
 
 # 备份数据
-# docker exec postgres_5189 pg_dump -U user -d testdb | gzip -c>db.sql.gz
+# docker exec postgres_5189 pg_dump -U user -d testdb | gzip -c>backup.sql.gz
 # 还原备份数据
-# gunzip < db.20220419.sql.gz | docker exec -i postgres_5189 psql -U user -d testdb
+# gunzip < backup.sql.gz | docker exec -i postgres_5189 psql -U user -d testdb
