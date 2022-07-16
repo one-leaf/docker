@@ -113,7 +113,7 @@
     1. nginx 增加log的配置，修改采用json格式输出，方便es采集，具体看 nginx/log.conf
     1. 站点增加,确定输出json的日志和允许查询当前nginx实时状态：
         ```
-            access_log /var/log/nginx/access.log main;
+            access_log /var/log/nginx/access.log json;
             location /nginx_status {
                 stub_status;
                 allow 172.17.0.1;        #only allow requests from docker
