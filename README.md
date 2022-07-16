@@ -128,7 +128,7 @@
 
 ## 常用命令
 
-  镜像名是指软件名字，容器名是正在运行的虚拟机名字
+  镜像名是指软件名字；容器名是正在运行的虚拟机名字，也可以用容器ID
 
 1. `docker run hello-world` 测试 Docker 是否正常
 1. `docker ps`  看正在运行的容器
@@ -136,4 +136,9 @@
 1. `docker logs -f -n 10 容器名` 跟踪容器的日志，保留之前最后10行日志 
 1. `docker run 镜像名` 运行一个容器
 1. `docker inspect 容器名` 看一个正在运行的容器信息
-
+1. `docker exec -it 容器名 /bin/bash` 进入一个容器
+1. `docker cp src/. 容器名:/target`  复制主机上的文件到容器
+1. `docker cp 容器名:/src/. target`  复制容器上的文件到主机
+1. `docker exec -i 容器名 sh -c 'cat > /target/file' < /src/file` 野路子上传，配合tar不错,如下
+1. `tar -czvf tmp.tar.gz *.* && docker exec -i container_id sh -c 'cat > ./bar/tmp.tar.gz && tar -xzvf tmp.tar.gz' < ./tmp.tar.gz` 呃,熟悉的用
+1. 
