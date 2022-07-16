@@ -141,4 +141,3 @@
 1. `docker cp 容器名:/src/. target`  复制容器上的文件到主机
 1. `docker exec -i 容器名 sh -c 'cat > /target/file' < /src/file` 野路子上传，配合tar不错,如下
 1. `tar -czvf tmp.tar.gz *.* && docker exec -i container_id sh -c 'cat > ./bar/tmp.tar.gz && tar -xzvf tmp.tar.gz' < ./tmp.tar.gz` 呃,熟悉的用
-1. 
