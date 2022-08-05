@@ -23,7 +23,7 @@ docker run -d \
     --restart=always \
     --memory="4G" \
     --cpus="2.0" \
-    -p $IP:9000:9000 \
+    -p $IP:$PORT:1521 \
     -e TZ=PRC \
     -e ORACLE_DATABASE=$DB \
     -e ORACLE_PASSWORD=$PASS \
@@ -33,9 +33,9 @@ docker run -d \
     -v /docker/oracle/data/$NAME:/u01/app/oracle/oradata \
     -v /docker/oracle/backup/$NAME:/mnt/backup \
     gvenzl/oracle-xe:11 \
-    --health-cmd healthcheck.sh
-    --health-interval 10s
-    --health-timeout 5s
+    --health-cmd healthcheck.sh \
+    --health-interval 10s \
+    --health-timeout 5s \
     --health-retries 10
 
 # 创建用户
