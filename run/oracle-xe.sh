@@ -2,7 +2,8 @@
 IP="192.168.1.1"
 PORT=1521
 NAME="oracle_$PORT"
-# DB的选项仅仅用于18c以上，18c以下版本是固定的XEPDB1 jdbc:oracle:thin:@$IP:$PORT/XEPDB1
+
+# 以下选项11g都无效，11g默认的实例名为XE
 DB="XEPDB1"
 USER="user"
 PASS="123456"
