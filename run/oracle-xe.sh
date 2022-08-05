@@ -3,7 +3,9 @@ IP="192.168.1.1"
 PORT=1521
 NAME="oracle_$PORT"
 
+# 版本支持 21c, 18c, 11g
 # 以下选项11g都无效，11g默认的实例名为XE，用户名sys，密码为$PASS
+# 11g 需要使用 sys as SYSDBA 登录后，自行创建用户
 DB="XEPDB1"
 USER="user"
 PASS="123456"
@@ -14,7 +16,13 @@ sudo mkdir -p /docker/oracle/backup/$NAME
 sudo chown 1000:1000 /docker/oracle/data/$NAME
 sudo chown 1000:1000 /docker/oracle/backup/$NAME
 
-# 如果版本大于11g，则数据目录为 /opt/oracle/oradata
+# 11g的数据目录为 /u01/app/oracle/oradata
+# 如果21c, 18c，则数据目录为 /opt/oracle/oradata ，
+# XE版 的限制： 
+#   1 最大数据库大小为 11 GB 
+#   2 可使用的最大内存是 1G
+#   3 一台机器上只能安装一个 XE 实例
+#   4 只能使用单 CPU
 
 docker run -d \
     --name $NAME \
