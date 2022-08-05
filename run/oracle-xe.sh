@@ -10,8 +10,8 @@ PASS="123456"
 sudo mkdir -p /docker/oracle/data/$NAME
 sudo mkdir -p /docker/oracle/backup/$NAME
 
-sudo chown 999:999 /docker/oracle/data/$NAME
-sudo chown 999:999 /docker/oracle/backup/$NAME
+sudo chown 1000:1000 /docker/oracle/data/$NAME
+sudo chown 1000:1000 /docker/oracle/backup/$NAME
 
 # 如果版本大于11g，则数据目录为 /opt/oracle/oradata
 
