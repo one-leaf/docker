@@ -3,7 +3,7 @@ IP="192.168.1.1"
 PORT=1521
 NAME="oracle_$PORT"
 
-# 以下选项11g都无效，11g默认的实例名为XE
+# 以下选项11g都无效，11g默认的实例名为XE，用户名sys，密码为$PASS
 DB="XEPDB1"
 USER="user"
 PASS="123456"
