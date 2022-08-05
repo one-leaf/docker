@@ -20,7 +20,7 @@ docker run -d \
     --name $NAME \
     --restart=always \
     --memory="1G" \
-    --cpus="2.0" \
+    --cpus="1.0" \
     -p $IP:$PORT:1521 \
     -e TZ=PRC \
     -e ORACLE_DATABASE=$DB \
