@@ -2,21 +2,18 @@
 IP="192.168.1.1"
 PORT=1521
 NAME="oracle_$PORT"
-# DB的选项仅仅用于18c以上，以下版本是固定的XEPDB1 jdbc:oracle:thin:@$IP:$PORT/XEPDB1
+# DB的选项仅仅用于18c以上，18c以下版本是固定的XEPDB1 jdbc:oracle:thin:@$IP:$PORT/XEPDB1
 DB="XEPDB1"
 USER="user"
 PASS="123456"
 
 sudo mkdir -p /docker/oracle/data/$NAME
-#sudo mkdir -p /docker/oracle/binlog/$NAME
 sudo mkdir -p /docker/oracle/backup/$NAME
 
 sudo chown 999:999 /docker/oracle/data/$NAME
-#sudo chown 999:999 /docker/oracle/binlog/$NAME
 sudo chown 999:999 /docker/oracle/backup/$NAME
 
-# 如果版本大于11g，则目录为 /opt/oracle/oradata
-# 缺省数据为 XEPDB1 
+# 如果版本大于11g，则数据目录为 /opt/oracle/oradata
 
 docker run -d \
     --name $NAME \
