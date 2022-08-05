@@ -19,7 +19,7 @@ sudo chown 1000:1000 /docker/oracle/backup/$NAME
 docker run -d \
     --name $NAME \
     --restart=always \
-    --memory="4G" \
+    --memory="1G" \
     --cpus="2.0" \
     -p $IP:$PORT:1521 \
     -e TZ=PRC \
