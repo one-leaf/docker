@@ -6,6 +6,7 @@ NAME="oracle_$PORT"
 # 版本支持 21c, 18c, 11g
 # 以下选项11g都无效，11g默认的实例名为XE，用户名sys，密码为$PASS
 # 11g 需要使用 sys as SYSDBA 登录后，自行创建用户
+# 12c 和 18c 默认实例名 XEPDB1 
 DB="XEPDB1"
 USER="user"
 PASS="123456"
