@@ -10,7 +10,7 @@ function gitpush()
     while true
     do
         echo "***开始push本地仓库***"
-        var=$(git push origin master:master 2>&1)
+        var=$(git push origin main:main 2>&1)
         if [[ $var =~ $error_str1 || $var =~ $error_str2 ]]; then 
             echo "***push远程仓库出现错误***"
             echo $var
