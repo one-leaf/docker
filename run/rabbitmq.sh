@@ -1,13 +1,12 @@
 #!/bin/sh
 IP="192.168.1.1"
-PORT=5189
 NAME="rabbitmq"
 USER="user"
 PASS="123456"
 
 docker run -d \
     --name $NAME \
-    --hostname kjds_mq \
+    --hostname rabbit_mq \
     --restart=always \
     --memory="8g" \
     --cpus="8.0" \
